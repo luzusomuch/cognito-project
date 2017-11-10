@@ -1,0 +1,82 @@
+<!doctype html>
+<html ng-app="cognitoProject">
+<head>
+    <base href="/"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>DEMO app</title>
+
+
+    <!-- Favicons -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css assets/styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css assets/styles/index.css -->
+    <link rel="stylesheet" href="assets/styles/customized.css">
+    <!-- endbuild -->
+</head>
+<body>
+
+
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your
+        experience.</p>
+    <![endif]-->
+
+    <!-- TODO: REMOVE THIS HACK AFTER DEMO !!!-->
+    <div ui-view class="content">
+    </div>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
+    <!-- build:js({modules}) scripts/modules.js -->
+    <script src="modules/aws-cognito-sdk.min.js"></script>
+    <script src="modules/amazon-cognito-identity.min.js"></script>
+    <script src="modules/aws-sdk-2.6.10.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/app.js -->
+    <script src="scripts/app/app.js"></script>
+    <script src="scripts/app/app.constants.js"></script>
+    <script src="scripts/app/home/home.js"></script>
+    <script src="scripts/app/home/homeController.js"></script>
+    <script src="scripts/app/auth/auth.js"></script>
+    <script src="scripts/app/auth/forgot-pw/forgot-pw.controller.js"></script>
+    <script src="scripts/app/auth/login/login.controller.js"></script>
+    <script src="scripts/app/auth/register/register.controller.js"></script>
+    <script src="scripts/app/auth/verify/verify.controller.js"></script>
+    <script src="scripts/app/item/item.js"></script>
+    <script src="scripts/app/item/create/create.controller.js"></script>
+    <script src="scripts/app/item/edit/edit.controller.js"></script>
+    <script src="scripts/app/item/list/list.controller.js"></script>
+    <script src="scripts/app/tag/tag.js"></script>
+    <script src="scripts/app/tag/create/create.controller.js"></script>
+    <script src="scripts/app/tag/edit/edit.controller.js"></script>
+    <script src="scripts/app/tag/list/list.controller.js"></script>
+
+    <script src="scripts/service/auth.service.js"></script>
+    <script src="scripts/service/help.service.js"></script>
+    <script src="scripts/service/item.service.js"></script>
+    <script src="scripts/service/tag.service.js"></script>
+    <!-- endbuild -->
+
+
+
+</body>
+</html>
