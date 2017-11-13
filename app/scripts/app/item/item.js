@@ -14,7 +14,7 @@ angular.module('cognitoProject')
     templateUrl: 'scripts/app/item/create/create.html',
     controller: 'ItemCreateCtrl'
   }).state('item.edit', {
-    url: '/edit',
+    url: '/edit/:id',
     templateUrl: 'scripts/app/item/edit/edit.html',
     controller: 'ItemEditCtrl'
   });

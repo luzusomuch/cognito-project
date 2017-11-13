@@ -14,7 +14,7 @@ angular.module('cognitoProject')
     templateUrl: 'scripts/app/tag/create/create.html',
     controller: 'TagCreateCtrl'
   }).state('tag.edit', {
-    url: '/edit',
+    url: '/edit/:id',
     templateUrl: 'scripts/app/tag/edit/edit.html',
     controller: 'TagEditCtrl'
   });

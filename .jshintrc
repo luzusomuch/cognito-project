@@ -60,7 +60,7 @@
     "google"		: true,
     "Chart"         : false,
     "AWSCognito": true,
-    "AWS": true,
+    "AWS": true
   },
   "passfail"		: false,	// If the scan should stop on first error.
   "white"		    : true		// If strict whitespace rules apply.

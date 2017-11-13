@@ -1,1 +1,24 @@
-list.html
+<div class="container">
+	<h1>Items list</h1>
+	<div>
+		<a ui-sref="item.create">Add new item</a>
+	</div>
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Item Name</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items">
+					<td>{{$index+1}}</td>
+					<td>{{item.name}}</td>
+					<td><a ui-sref="item.edit({id: item.id})">Edit</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

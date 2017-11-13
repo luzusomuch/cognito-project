@@ -12,12 +12,8 @@ var proxyOptions = {
     urls: [
         {
             route: '/v1',
-                url: 'http://devapi.novatopo.com/v1'
+            url: 'https://ieb9a4t1d1.execute-api.us-west-2.amazonaws.com/Prod'
         },
-        {
-            route: '/solr',
-            url: 'http://dev-search.novatopo.com/solr'
-        }
     ],
     createConfig: function () {
         var opt = [];

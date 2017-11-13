@@ -1,20 +1,18 @@
 'use strict';
 
 angular.module('cognitoProject').factory('TagService', function($http, cognito, $localStorage, $q){
-  
+  var token = $localStorage['token'];
   return {
     getAll: function() {
       var deferred = $q.defer();
-      $http.get(cognito.apiEndPoint + '/tags', {
+      $http.get('/v1/tags', {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer '+$localStorage['token']
+          Authorization: 'Bearer '+ token
         }
       }).then(function(resp) {
-        console.log(resp)
         deferred.resolve(resp);
       }, function(err) {
-        console.log(err);
         deferred.reject(err);
       });
       return deferred.promise;

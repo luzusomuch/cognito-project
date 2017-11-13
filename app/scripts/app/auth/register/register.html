@@ -17,6 +17,13 @@
 			<input type="password" name="password" ng-model="password" required class="form-control">
 		</div>
 		<div class="form-group">
+			<label>Type</label>
+			<select ng-model="type" required class="form-control">
+				<option value="1">Content creator</option>
+				<option value="2">Reader</option>
+			</select>
+		</div>
+		<div class="form-group">
 			<button type="submit" class="btn btn-primary">Register</button>
 		</div>
 	</form>
