@@ -8,7 +8,7 @@ angular.module('cognitoProject').factory('TagService', function($http, cognito, 
       $http.get('/v1/tags', {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer '+ token
+          'user': token
         }
       }).then(function(resp) {
         deferred.resolve(resp);

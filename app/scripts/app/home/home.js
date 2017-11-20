@@ -5,6 +5,13 @@ angular.module('cognitoProject')
 	$stateProvider.state('home', {
     url: '/home',
     templateUrl: 'scripts/app/home/view.html',
-    controller: 'HomeCtrl'
+    controller: 'HomeCtrl',
+    resolve: {
+    	user: function(AuthService) {
+    		return AuthService.getCurrentUser().then(function(resp) {
+    			return resp;
+    		});
+    	}
+    }
   });
 });

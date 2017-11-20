@@ -2,6 +2,7 @@
 
 angular.module('cognitoProject').factory('AuthService', function($q, $rootScope, cognito, $localStorage){
   var cognitoUser;
+  var currentUser = {};
 
   return {
     register: function(username, password, attributeList) {
@@ -31,7 +32,7 @@ angular.module('cognitoProject').factory('AuthService', function($q, $rootScope,
       cognitoUser = new AWSCognito.CognitoIdentityServiceProvider.CognitoUser(userData);
       cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
-          var token = result.getAccessToken().getJwtToken();
+          var token = result.getIdToken().getJwtToken();
           $localStorage['token'] = token;
           //POTENTIAL: Region needs to be set if not already set previously elsewhere.
           AWS.config.region = cognito.AWSRegion;
@@ -42,7 +43,7 @@ angular.module('cognitoProject').factory('AuthService', function($q, $rootScope,
           AWS.config.credentials = new AWS.CognitoIdentityCredentials({
               IdentityPoolId : cognito.AWSPoolId, // your identity pool id here
               Logins : {
-                credentialsUrl : result.getIdToken().getJwtToken()
+                credentialsUrl : token
               }
           });
 
@@ -87,6 +88,44 @@ angular.module('cognitoProject').factory('AuthService', function($q, $rootScope,
           deferred.resolve(result);
         }
       });
+      return deferred.promise;
+    },
+    getCurrentUser: function() {
+      var deferred = $q.defer();
+      cognitoUser.getUserAttributes(function(err, result) {
+        if (err) {
+          deferred.reject(err);
+        } else {
+          for (i = 0; i < result.length; i++) {
+            currentUser[result[i].getName()] = result[i].getValue();
+          }
+          deferred.resolve(currentUser);
+        }
+      });
+      return deferred.promise;
+    },
+    init: function() {
+      var deferred = $q.defer();
+      cognitoUser = $rootScope.userPool.getCurrentUser();
+      if (cognitoUser != null) {
+        cognitoUser.getSession(function(err, session) {
+          if (err) {
+            deferred.reject(err);
+          } else {
+            console.log('session validity: ' + session.isValid());
+            var token = session.getIdToken().getJwtToken();
+            $localStorage['token'] = token;
+            var credentialsUrl = 'cognito-idp.'+cognito.AWSRegion+'.amazonaws.com/'+cognito.AWSUserPoolId;
+            AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+                IdentityPoolId : cognito.AWSPoolId, // your identity pool id here
+                Logins : {
+                  credentialsUrl : token
+                }
+            });
+            deferred.resolve(token);
+          }
+        });
+      }
       return deferred.promise;
     }
   };

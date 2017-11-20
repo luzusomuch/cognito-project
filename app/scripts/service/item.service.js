@@ -8,7 +8,7 @@ angular.module('cognitoProject').factory('ItemService', function($localStorage, 
       $http.get('/v1/docs', {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer '+ token
+          'user': token
         }
       }).then(function(resp) {
         deferred.resolve(resp);
@@ -22,7 +22,7 @@ angular.module('cognitoProject').factory('ItemService', function($localStorage, 
       $http.get('/v1/docs?tags='+codeList, {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer '+ token
+          'user': token
         }
       }).then(function(resp) {
         deferred.resolve(resp);
@@ -36,7 +36,7 @@ angular.module('cognitoProject').factory('ItemService', function($localStorage, 
       $http.post('/v1/docs', data, {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer '+ token
+          'user': token
         }
       }).then(function(resp) {
         deferred.resolve(resp);
@@ -50,7 +50,7 @@ angular.module('cognitoProject').factory('ItemService', function($localStorage, 
       $http.put('/v1/docs/'+id, data, {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer '+ token
+          'user': token
         }
       }).then(function(resp) {
         deferred.resolve(resp);
@@ -64,7 +64,7 @@ angular.module('cognitoProject').factory('ItemService', function($localStorage, 
       $http.get('/v1/docs/'+id, {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer '+ token
+          'user': token
         }
       }).then(function(resp) {
         deferred.resolve(resp);
