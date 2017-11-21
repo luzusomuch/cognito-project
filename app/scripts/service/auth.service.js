@@ -96,7 +96,7 @@ angular.module('cognitoProject').factory('AuthService', function($q, $rootScope,
         if (err) {
           deferred.reject(err);
         } else {
-          for (i = 0; i < result.length; i++) {
+          for (var i = 0; i < result.length; i++) {
             currentUser[result[i].getName()] = result[i].getValue();
           }
           deferred.resolve(currentUser);

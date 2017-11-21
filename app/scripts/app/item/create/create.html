@@ -1,12 +1,17 @@
-<div class="row">
+<div class="container">
+	<h1>Create content</h1>
 	<form name="form" ng-submit="submit(form)">
 		<div class="form-group">
-			<label>Topic</label>
-			<input type="text" name="topic" ng-model="item.topic" required class="form-control">
+			<label>Title</label>
+			<input type="text" name="title" ng-model="item.title" required class="form-control">
 		</div>
 		<div class="form-group">
 			<label>Content</label>
-			<text-angular ng-model="item.content"></text-angular>
+			<div ckeditor="" ng-model="item.content" ready="onReady()"></div>
+		</div>
+		<div class="form-group">
+			<label>Recommended response</label>
+			<input class="form-control" type="text" name="response" ng-model="item.response" required>
 		</div>
 		<div class="form-group">
 			<label>Tags</label>
@@ -15,9 +20,10 @@
 			</tags-input>
 		</div>
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary">Login</button>
+			<button type="submit" class="btn btn-primary">Public content</button>
+			<button type="button" class="btn btn-default">Save as draff</button>
+			<button type="button" class="btn btn-default">Preview</button>
+			<button type="button" ui-sref="item.list" class="btn btn-default">Cancel</button>
 		</div>
 	</form>
-	<a ui-sref="register">Click here to register</a>
-	<a ui-sref="forgotPw">Forgot password?</a>
 </div>

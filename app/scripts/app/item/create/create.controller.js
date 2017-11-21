@@ -4,8 +4,8 @@ angular.module('cognitoProject').controller('ItemCreateCtrl', ItemCreateCtrl);
 
 
 /* @ngInject */
-function ItemCreateCtrl ($scope, TagService, $q) {
-	$scope.items = [];
+function ItemCreateCtrl ($scope, TagService, ItemService, ResponseService, $q) {
+	$scope.item = {};
 
 	$scope.loadTags = function(query) {
 		var deferred = $q.defer();
@@ -19,10 +19,24 @@ function ItemCreateCtrl ($scope, TagService, $q) {
 			});
 			deferred.resolve(results);
 		}).catch(function(err) {
-			console.log(err);
 			deferred.reject(err);
 		});
 		return deferred.promise;
 	};
+
+
+	$scope.submit = function(form) {
+		if (form.$valid) {
+			$scope.item.tags = _.map($scope.item.tags, function(tag) {
+				return tag.text;
+			});
+			ItemService.create($scope.item).then(function(resp) {
+				var doc = resp.data.body;
+				ResponseService.create({'doc-id': doc.id, response: $scope.item.response});
+			}).catch(function(err) {
+				console.log(err);
+			});
+		}
+	}
 }
 

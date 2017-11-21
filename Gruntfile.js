@@ -98,7 +98,6 @@ module.exports = function (grunt) {
                 bsFiles: {
                     src: [
                         'app/**/*.html',
-                        'app/**/*.json',
                         'app/assets/styles/**/*.css',
                         'app/scripts/**/*.{js,html}',
                         'app/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg,mp4}',

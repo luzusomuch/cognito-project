@@ -1,24 +1,27 @@
-<div class="container">
-	<h1>Items list</h1>
-	<div>
-		<a ui-sref="item.create">Add new item</a>
+<div class="container contents-list">
+	<div class="row">
+		<h1 class="col-sm-9">Contents</h1>
+		<div class="col-sm-3 item-header-button">
+			<a ui-sref="item.create" class="btn btn-default">Create new content</a>
+		</div>
 	</div>
 	<div class="row">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Item Name</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="item in items">
-					<td>{{$index+1}}</td>
-					<td>{{item.name}}</td>
-					<td><a ui-sref="item.edit({id: item.id})">Edit</a></td>
-				</tr>
-			</tbody>
-		</table>
+		<ul class="content">
+			<li class="content-item" ng-repeat="content in contents">
+				<div class="content">
+					<h4>{{content.title}}</h4>
+					<h4 ng-bind-html="content.content | limitTo: 500 | nl2br"></h4>
+				</div>
+				<div class="footer row">
+					<div class="col-sm-6">
+						<span class="tag" ng-repeat="tag in content.tags">{{tag}}</span>
+					</div>
+					<div class="col-sm-6">
+						<span>{{content.answer}} Responses</span>
+						<a ui-sref="item.edit({id: content._id})" class="btn btn-default">Edit</a>
+					</div>
+				</div>
+			</li>
+		</ul>
 	</div>
 </div>

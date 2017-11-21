@@ -4,7 +4,7 @@ angular.module('cognitoProject')
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider.state('item', {
     url: '/item',
-    templateUrl: '</ui-view>'
+    template: '<ui-view/>'
   }).state('item.list', {
     url: '/list',
     templateUrl: 'scripts/app/item/list/list.html',
@@ -16,6 +16,16 @@ angular.module('cognitoProject')
   }).state('item.edit', {
     url: '/edit/:id',
     templateUrl: 'scripts/app/item/edit/edit.html',
-    controller: 'ItemEditCtrl'
+    controller: 'ItemEditCtrl',
+    resolve: {
+      content: ['ItemService', '$stateParams', '$state', function(ItemService, $stateParams, $state) {
+        return ItemService.get($stateParams.id).then(function(resp) {
+          console.log(resp);
+        }).catch(function(err) {
+          console.log(err);
+          $state.go('item.list');
+        });
+      }]
+    }
   });
 });

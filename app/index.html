@@ -15,7 +15,6 @@
     <!-- build:css assets/styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/textAngular/dist/textAngular.css" />
     <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.css" />
     <!-- endbower -->
     <!-- endbuild -->
@@ -35,6 +34,8 @@
     <!-- TODO: REMOVE THIS HACK AFTER DEMO !!!-->
     <div ui-view class="content">
     </div>
+    <script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -52,19 +53,18 @@
     <script src="bower_components/rangy/rangy-selectionsaverestore.js"></script>
     <script src="bower_components/rangy/rangy-serializer.js"></script>
     <script src="bower_components/rangy/rangy-textrange.js"></script>
-    <script src="bower_components/textAngular/dist/textAngular.js"></script>
-    <script src="bower_components/textAngular/dist/textAngular-sanitize.js"></script>
-    <script src="bower_components/textAngular/dist/textAngularSetup.js"></script>
     <script src="bower_components/ng-tags-input/ng-tags-input.js"></script>
+    <script src="bower_components/angular-ckeditor/angular-ckeditor.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
 
     <!-- build:js({modules}) scripts/modules.js -->
     <script src="modules/aws-cognito-sdk.min.js"></script>
     <script src="modules/amazon-cognito-identity.min.js"></script>
     <script src="modules/aws-sdk-2.6.10.min.js"></script>
     <!-- endbuild -->
+
+
     <!-- build:js({.tmp,app}) scripts/app.js -->
     <script src="scripts/app/app.js"></script>
     <script src="scripts/app/app.constants.js"></script>
@@ -88,6 +88,9 @@
     <script src="scripts/service/help.service.js"></script>
     <script src="scripts/service/item.service.js"></script>
     <script src="scripts/service/tag.service.js"></script>
+    <script src="scripts/service/response.service.js"></script>
+
+    <script src="scripts/filter/filter.js"></script>
     <!-- endbuild -->
 
 

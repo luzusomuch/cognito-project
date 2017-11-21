@@ -1,3 +1,31 @@
 .login-form {
 	margin-top: 20px;
 }
+
+.contents-list {
+	.item-header-button {
+		margin-top: 35px;
+	}
+	.content {
+		li {
+			list-style-type: none;
+		}
+		.content-item {
+			padding-bottom: 10px;
+			border-top: 1px solid #000;
+
+			.footer {
+				.tag {
+					margin-right: 5px;
+			    border: 1px solid #000;
+			    padding: 5px;
+			    border-radius: 5px;
+				}
+			}
+		}
+
+		&:first-child {
+			margin-top: 10px;
+		}
+	}
+}

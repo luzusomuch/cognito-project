@@ -4,7 +4,6 @@ angular.module('cognitoProject')
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider.state('tag', {
     url: '/tag',
-    templateUrl: '</ui-view>'
   }).state('tag.list', {
     url: '/list',
     templateUrl: 'scripts/app/tag/list/list.html',
