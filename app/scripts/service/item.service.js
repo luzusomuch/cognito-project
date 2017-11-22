@@ -61,7 +61,7 @@ angular.module('cognitoProject').factory('ItemService', function($localStorage, 
     },
     get: function(id) {
       var deferred = $q.defer();
-      $http.get('/v1/docs/'+id, {
+      $http.get('/v1/doc?id='+id, {
         headers: {
           'Content-Type': 'application/json',
           'user': token

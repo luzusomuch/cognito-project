@@ -37,6 +37,6 @@ function ItemCreateCtrl ($scope, TagService, ItemService, ResponseService, $q) {
 				console.log(err);
 			});
 		}
-	}
+	};
 }
 

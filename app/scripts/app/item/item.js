@@ -19,6 +19,7 @@ angular.module('cognitoProject')
     controller: 'ItemEditCtrl',
     resolve: {
       content: ['ItemService', '$stateParams', '$state', function(ItemService, $stateParams, $state) {
+        console.log($stateParams.id);
         return ItemService.get($stateParams.id).then(function(resp) {
           console.log(resp);
         }).catch(function(err) {

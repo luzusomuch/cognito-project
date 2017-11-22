@@ -10,15 +10,15 @@
 			<li class="content-item" ng-repeat="content in contents">
 				<div class="content">
 					<h4>{{content.title}}</h4>
-					<h4 ng-bind-html="content.content | limitTo: 500 | nl2br"></h4>
+					<h4 ng-bind-html="content.content | limitTo: 500 | nl2br | html"></h4>
 				</div>
 				<div class="footer row">
 					<div class="col-sm-6">
-						<span class="tag" ng-repeat="tag in content.tags">{{tag}}</span>
+						<span class="btn btn-default" ng-repeat="tag in content.tags">{{tag}}</span>
 					</div>
 					<div class="col-sm-6">
 						<span>{{content.answer}} Responses</span>
-						<a ui-sref="item.edit({id: content._id})" class="btn btn-default">Edit</a>
+						<a ui-sref="item.edit({id: content.id})" class="btn btn-default">Edit</a>
 					</div>
 				</div>
 			</li>

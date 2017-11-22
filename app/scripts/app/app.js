@@ -1,5 +1,5 @@
 'use strict';
-angular.module('cognitoProject', ['ui.router', 'ui.bootstrap', 'ngStorage', 'ckeditor', 'ngTagsInput'])
+angular.module('cognitoProject', ['ui.router', 'ui.bootstrap', 'ngStorage', 'ckeditor', 'ngTagsInput', 'ngSanitize'])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/login');

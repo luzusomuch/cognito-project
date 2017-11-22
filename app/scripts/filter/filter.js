@@ -7,4 +7,8 @@ angular.module('cognitoProject').filter('nl2br', function() {
     }
     return data.replace(/\n\r?/g, '<br />');
   };
+}).filter('html', function($sce) {
+  return function(data) {
+    return $sce.trustAsHtml(data);
+  };
 });
